@@ -39,4 +39,4 @@ jobs:
         uses: docker/build-push-action@v2.9.0
         with:
           push: true
-          tags: ${{ secrets.DOCKER_USER_NAME }}/readaily-backend:{{steps.vars.outputs.sha}}
+          tags: ${{ secrets.DOCKER_USER_NAME }}/readaily-backend:${{steps.vars.outputs.sha}}
