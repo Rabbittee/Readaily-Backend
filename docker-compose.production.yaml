@@ -23,4 +23,4 @@ services:
       - readaily_backend
 
 networks:
-  backend:
+  readaily_backend:
