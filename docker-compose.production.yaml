@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   backend:
-    image: katsudevelopers:readaily-backend:$docker_image_tag
+    image: katsudevelopers/readaily-backend:$docker_image_tag
     command: >
       sh -c "npx prisma db push && npm run server"
     ports:
