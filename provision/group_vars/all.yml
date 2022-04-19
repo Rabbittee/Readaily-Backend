@@ -1,5 +1,5 @@
 app_user: surfer
 
-repo_url: git://github.com/Rabbittee/Readaily-Backend.git
+repo_url: git@github.com/Rabbittee/Readaily-Backend.git
 repo_dir: /home/surfer/Readaily-Backend
 branch: master
