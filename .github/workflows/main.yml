@@ -40,3 +40,12 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKER_USER_NAME }}/readaily-backend:${{steps.vars.outputs.sha}}
+
+      - name: run ansible deploy
+        uses: dawidd6/actions-ansible-playbook@v2.5.0
+        with:
+          playbook: provision/playbook.yaml
+          key: ${{secrets.ssh_key}}
+          options:
+            --inventory provision/hosts.ini
+            --extra-vars docker_image_tag={{steps.vars.outputs.sha}}

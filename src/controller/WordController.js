@@ -1,10 +1,16 @@
 const { WordService } = require('../service/WordService')
 
 
-const saveWords = (req, res) => {
+const saveWords = async (req, res) => {
+
     const { body } = req
-    WordService.saveWords(body)
-    res.send('save words')
+    const [words, error] = await WordService.saveWords(body)
+    if (error === null){
+        res.json(words)
+    } else {
+        res.status(404).json({"message": error.message })
+    }
+
 }
 
 module.exports = {

@@ -40,7 +40,28 @@ class ArticleCronJob {
     }
 }
 
+class ArticleGetService {
+
+    static async getById(id){
+        return prisma.Article.findFirst({
+            where:{
+                id
+            }
+        })
+    }
+
+    static async getByDate(publishedAt){
+        return prisma.Article.findMany({
+            where:{
+                publishedAt
+            }
+        })
+    }
+
+}
+
 
 module.exports = {
-    ArticleCronJob
+    ArticleCronJob,
+    ArticleGetService
 }
