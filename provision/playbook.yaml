@@ -3,5 +3,5 @@
   become: yes
 
   tasks:
-    import_tasks: tasks/backend_deploy.yaml
+  - import_tasks: tasks/backend_deploy.yaml
     tags: [tags]
