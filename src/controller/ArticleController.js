@@ -5,7 +5,12 @@ const cronGetArticle = (req, res) => {
     res.send('stuff is done')
 }
 
-const getArticle = async (req, res) => {
+const getArticles = async(req, res) => {
+    let articles = await ArticleGetService.getLatestArticle()
+    res.json({"articles": articles.slice(articles.length-5, articles.length)})
+}
+
+const getArticleById = async (req, res) => {
     const article = await ArticleGetService.getById(parseInt(req.params.id))
     if (article !== null){
         res.json(article)
@@ -25,6 +30,7 @@ const getArticlesByDate = async(req, res) => {
 
 module.exports = {
     cronGetArticle,
-    getArticle,
-    getArticlesByDate
+    getArticleById,
+    getArticlesByDate,
+    getArticles
 }

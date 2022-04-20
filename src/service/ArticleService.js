@@ -42,6 +42,10 @@ class ArticleCronJob {
 
 class ArticleGetService {
 
+    static async getLatestArticle(){
+        return prisma.Article.findMany()
+    }
+
     static async getById(id){
         return prisma.Article.findFirst({
             where:{
